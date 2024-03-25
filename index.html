@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>CSS Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introducción">Introducción</a></li>
+        <li>
+          <a class="nav-link" href="#Sintaxis"
+            >Sintaxis</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Selectores"
+            >Selectores</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Bloque_de_declaraciones">Bloque de declaraciones</a></li>
+        <li><a class="nav-link" href="#Uso">Uso</a></li>
+        <li>
+          <a class="nav-link" href="#Fuentes"
+            >Fuentes</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Especificidad">Especificidad</a></li>
+        <li>
+          <a class="nav-link" href="#Herencia">Herencia</a>
+        </li>
+        <li><a class="nav-link" href="#Espacios_en_blanco">Espacios en blanco</a></li>
+        <li><a class="nav-link" href="#Posicionamiento">Posicionamiento</a></li>
+        <li>
+          <a class="nav-link" href="#Propiedades_de_posicionamiento"
+            >Propiedades de posicionamiento</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Float_y_clear">Float y clear</a></li>
+        <li>
+          <a class="nav-link" href="#Ventajas"
+            >Ventajas</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Frameworks_de_CSS">Frameworks de CSS</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introducción">
+        <header>Introducción</header>
+        <article>
+          <p>
+            CSS (siglas en inglés de Cascading Style Sheets), en español «Hojas de estilo en cascada», es un lenguaje de diseño gráfico para definir y crear la presentación de un documento estructurado escrito en un lenguaje de marcado. Es muy usado para establecer el diseño visual de los documentos web, e interfaces de usuario escritas en HTML o XHTML; el lenguaje puede ser aplicado a cualquier documento XML, incluyendo XHTML, SVG, XUL, RSS, etcétera. Junto con HTML y JavaScript, CSS es una tecnología usada por muchos sitios web para crear páginas visualmente atractivas, interfaces de usuario para aplicaciones web y GUIs para muchas aplicaciones móviles (como Firefox OS).
+          </p>
+
+          <p>
+            CSS está diseñado principalmente para marcar la separación del contenido del documento y la forma de presentación de este, características tales como las capas o layouts, los colores y las fuentes.4 Esta separación busca mejorar la accesibilidad del documento, proveer más flexibilidad y control en la especificación de características presentacionales, permitir que varios documentos HTML compartan un mismo estilo usando una sola hoja de estilos separada en un archivo .css, y reducir la complejidad y la repetición de código en la estructura del documento.
+          </p>
+          <p>
+            La separación del formato y el contenido hace posible presentar el mismo documento marcado en diferentes estilos para diferentes métodos de renderizado, como en pantalla, en impresión, en voz (mediante un navegador de voz o un lector de pantalla), y dispositivos táctiles basados en el sistema Braille. También se puede mostrar una página web de manera diferente dependiendo del tamaño de la pantalla o tipo de dispositivo. Los lectores pueden especificar una hoja de estilos diferente, como una hoja de estilos CSS guardado en su computadora, para sobreescribir la hoja de estilos del diseñador.
+          </p>
+          <ul>
+            <li>
+              La especificación CSS describe un esquema prioritario para determinar qué reglas de estilo se aplican si más de una regla coincide para un elemento en particular. Estas reglas son aplicadas con un sistema llamado de cascada, de modo que las prioridades son calculadas y asignadas a las reglas, así que los resultados son predecibles.
+            </li>
+            <li>
+              La especificación CSS es mantenida por el World Wide Web Consortium (W3C). El MIME type text/css está registrado para su uso por CSS descrito en el RFC 2318.5 El W3C proporciona una herramienta de validación de CSS gratuita para los documentos CSS.f the application, or perform file manipulations on a
+              server.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Sintaxis">
+        <header>Sintaxis</header>
+        <article>
+          <p>CSS tiene una sintaxis simple y usa un conjunto de palabras clave en inglés para especificar los nombres de varias propiedades de estilo:</p>
+
+          <ul>
+            <li>
+              Una hoja de estilos consiste en una serie de reglas.
+            </li>
+            <li>Cada regla, o conjunto de reglas consisten en uno o más selectores, y un bloque de declaración.</li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Selectores">
+        <header>Selectores</header>
+        <article>
+          <p>
+            Los selectores declaran qué etiquetas se le aplican a los estilos que coincidan con la etiqueta o atributo señalados en la regla.
+            Los selectores pueden aplicarse a:
+          </p>
+           <ul>
+            <li>
+              Todos los elementos de un tipo, como los párrafos <code>&lt;p&gt;</code>
+            </li>
+            <li>Elementos seguidos de un atributo, en particular:
+              <ul><li><b><i>id:</i></b> identificador, un identificador único para la etiqueta </li>
+                <li><b><i>class:</i></b> clase, un identificador para anotar múltiples elementos</li></ul>
+            </li>
+          </ul>
+
+          <p>
+            Las clases y los identificadores son sensibles a las mayúsculas, comienzan con letras, y pueden incluir caracteres alfanuméricos y guiones bajos. Una clase se aplica a cualquier número de elementos. Un identificador se aplica a un solo elemento.
+          </p>
+          <p>
+            Las <b>pseudoclases</b>  son usadas en los selectores CSS para permitir el formateo usando información que no está incluida en el documento. Un ejemplo de una pseudoclase muy usada es: <code>:hover</code> Este identifica el contenido que está siendo apuntado por un puntero, como el cursor del ratón. Este nombre se añade al selector, de esta manera: <code>a:hover</code> o <code>#elementid:hover</code> Una pseudoclase clasifica elementos, como <code>:link</code> o <code>:visited</code>, mientras que un pseudoelemento hace una selección de elementos parciales, como <code>::first-line</code> o <code>::first-letter</code>
+          </p>
+          <p>
+            Los selectores pueden ser combinados de muchas maneras para obtener una mayor flexibilidad y precisión. Múltiples selectores pueden ser unidos en una misma línea para especificar elementos por su ubicación, tipo de elemento, identificador, clase, o cualquier combinación de estos. El orden de los selectores es importante. Por ejemplo, <code>div.myClass {color: red;}</code> aplica a todos los elementos <code>&lt;div&gt;</code> con la clase myClass, mientras que <code>.myClass div {color: red;}</code> aplica a todos los elementos <code>&lt;div&gt;</code> que estén dentro de cualquier elemento con la clase myClass.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Bloque_de_declaraciones"> 
+        <header>Bloque de declaraciones</header>
+        <article>
+          Un bloque de declaraciones consiste en una lista de declaraciones unidas. Cada declaración consiste en una propiedad, dos puntos (:), y un valor. Si hay muchas declaraciones en un bloque, un punto y coma (;) es insertado para separar cada declaración:
+          <code>.cat-head {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: linear-gradient(#5e5e5e 85%, #45454f 100%);
+            width: 205px;
+            height: 180px;
+            border: 1px solid #000;
+            border-radius: 46%;
+}
+          </code>
+
+          Las propiedades son insertadas en el estándar CSS. Cada propiedad tiene un conjunto de posibles valores. Algunas propiedades afectan a cualquier elemento, otras solo a un grupo particular de elementos. Los valores pueden ser palabras clave, como "center" o "inherit", o valores numéricos, como 200px (200 píxeles) o 80% (80 por ciento del ancho de la ventana). Los valores de colores son especificados por medio de una palabra clave (ej. "red"), de valores hexadecimales (ej. #FF0000, pudiéndose abreviar como #F00), valores RGB en una escala del 0 al 255 (ej. rgb(255, 0, 0)), valores RGBA igual que los valores RGB pero con soporte para el canal alfa de transparencias (ej. rgba(255, 0, 0, 0.8)), y valores HSL o HSLA (ej. hsl(000, 100%, 50%), hsla(000, 100%, 50%, 80%)).
+        </article>
+      </section>
+      <section class="main-section" id="Uso">
+        <header>Uso</header>
+        <p>
+          Antes del desarrollo de CSS, toda la información visual de los documentos HTML era incluida en el código HTML. Los colores de las fuentes, los estilos de fondo, la alineación de los elementos, los bordes y tamaños eran descritos explícitamente, a veces de manera redundante, dentro del HTML. CSS permite a los diseñadores mover toda la información visual a otro archivo, la hoja de estilos, resultando en un código HTML notablemente más simple.
+        </p>
+        <p>
+          Por ejemplo, las cabeceras (h1), sub-cabeceras (h2 ej. red), sub-sub-cabeceras (h3), etc., son definidas estructuralmente usando HTML. En la impresión y las pantallas, la elección de la fuente, tamaño, color y énfasis para esos elementos visuales.
+        </p>
+        <p>
+          Antes de CSS, los diseñadores que deseaban asignar características tipográficas, por ejemplo, a todos los elementos h2 tenían que repetir el código visual HTML por cada elemento al que se le deseaba aplicar ese estilo. Esto creaba documentos más complejos, largos, más propensos a errores y difíciles de mantener. CSS permite la separación entre la presentación y la estructura. CSS puede definir el color, fuente, alineación del texto, tamaño, bordes, espaciado, capas y muchas otras características tipográficas, y pueden aplicarse distintos estilos de impresión y de pantalla. CSS también define estilos no visuales, como la velocidad de lectura y énfasis en los lectores de textos aurales. El W3C ha declarado obsoleto el uso de las etiquetas visuales HTML.
+        </p>
+          <p>Por ejemplo, aplicando estilos mediante etiquetas presentacionales HTML, un elemento h1 definido con texto rojo se puede representar como:</p>
+                 <code><div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span><span class="p">&gt;</span> Capítulo 1. <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span></pre>
+                   </div></code>
+                 
+          <p>Usando CSS, el mismo elemento puede escribirse usando propiedades de estilo inline en vez de atributos y etiquetas de presentación:</p>
+                  <code><div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: red;&quot;</span><span class="p">&gt;</span> Capítulo 1. <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+                  </pre></div></code>
+          <p>Una hoja de estilos CSS externa, descrita abajo, puede enlazarse con un documento HTML usando la sintaxis siguiente:</p>
+         <code><div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;hojadeestilos.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="p">/&gt;</span> </pre></div></code>
+          <p>El código CSS se puede incluir en el código HTML en la etiqueta &lt;style&gt; dentro de la etiqueta &lt;head&gt; del documento:</p>
+         <code><div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+          <span class="w"></span><span class="nt">h1</span><span class="w"> </span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">}</span>
+          <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+          </pre></div></code>
+      </section>
+      <section class="main-section" id="Fuentes">
+        <header>Fuentes</header>
+        <article>
+          <p>
+            Los estilos CSS puede ser provistos desde varias fuentes. Esas fuentes pueden ser el navegador web, el usuario y el diseñador. La información del diseñador puede ser clasificada de las siguientes formas: inline, media type, importancia, especificidad del selector, orden de reglas, herencia y definición de propiedades. La información de los estilos CSS puede estar en un documento separado o puede estar embebido dentro de un documento HTML. Múltiples hojas de estilos pueden ser importadas al mismo tiempo. Los diferentes estilos pueden ser aplicados dependiendo de la salida del dispositivo usado en ese momento; por ejemplo, la versión para monitores puede ser diferente de la versión impresa, así que los diseñadores pueden aplicar diferentes estilos dependiendo del dispositivo usado..
+          </p>
+          <p>
+            La hoja de estilos con la máxima prioridad controla la visualización del contenido. Las declaraciones no establecidas en la fuente con máxima prioridad son sobreeescritas, como las hojas de estilos del agente de usuario. Este proceso es llamado cascading, o cascada.
+          </p>
+          <p>
+            Una de las metas de CSS es permitir a los usuarios un mayor control sobre la presentación. Algunas personas que encuentran a los encabezados rojos en itálicas difíciles de leer pueden aplicar una hoja de estilos diferente. Dependiendo del navegador y del sitio web, un usuario puede escoger entre varias hojas de estilo provistas por los diseñadores, o pueden remover todas las hojas de estilos añadidas y ver el sitio usando los estilos por defecto del navegador, o pueden sobreescribir solo el estilo de los encabezados rojos en itálica sin alterar otros atributos.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Especificidad">
+        <header>Especificidad</header>
+        <article>
+          <p>
+            La <i>especificidad</i> se refiere a los pesos relativos de varias reglas. Determina qué estilos se aplican a un elemento cuando más de una regla intentan aplicar estilos a ella. Basándose en la especificación, un simple selector (h1, por ejemplo) tiene una especificidad de 1, los selectores de clase tienen una especificidad de 1,0, y los selectores de id una especificidad de 1,0,0. Porque los valores de especificidad no se acarrean como en el sistema decimal, las comas son usadas para separar los "dígitos" (una regla CSS que tiene 11 elementos y 11 clases tiene una especificidad de 11,11, no 121).
+          </p>
+
+          <p>
+            Por lo tanto los siguientes selectores de reglas dan como resultado la especificidad indicada:
+          </p>
+           <ul>
+              <code> H1 {color: white;} : 0, 0, 0, 1</code>
+              <code>P EM {color: green;} : 0, 0, 0, 2</code>
+              <code>.grape {color: red;} : 0, 0, 1, 1</code>
+              <code>P.bright {color: blue;} : 0, 0, 2, 2</code>
+              <code>P.bright EM.dark {color: yellow;} : 0, 1, 0, 0</code>
+              <code>style=" " : 1, 0, 0, 0</code>
+          </ul>
+          <p>
+            Ejemplo: 
+              Considera este documento HTML:
+               <div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span> <span class="cp">&lt;!DOCTYPE html&gt;</span>
+           <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+             <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+               <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+               <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+          <span class="w">        </span><span class="p">#</span><span class="nn">id</span><span class="p">{</span><span class="n">propiedad</span><span class="p">:</span><span class="n">valor</span><span class="p">;}</span>
+          <span class="w">     </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+             <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+             <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+               <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;xyz&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: blue;&quot;</span><span class="p">&gt;</span>Para demostrar la especificidad<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+             <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+           <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+          </pre></div>
+          </p>
+          <p>En este ejemplo, la declaración en el atributo style sobreescribe la declaración del elemento &lt;style&gt; porque tiene un especificidad más alta.</p>
+        </article>
+      </section>
+      <section class="main-section" id="Herencia">
+        <header>Herencia</header>
+        <article>
+          <p>
+            La herencia es una característica clave en CSS; basada en la relación ancestro-descendiente para operar. La herencia es el mecanismo por el cual las propiedades no solo se aplican a un solo elemento, sino también a sus descendientes. La herencia se basa en el árbol del documento, el cual es la jerarquía de los elementos XHTML en una página basada en el anidamiento. Los elementos descendientes pueden heredar los valores de las propiedades CSS de un elemento ancestro. En general, los elementos descendientes heredan las propiedades relacionadas al texto, pero las propiedades relacionadas con la caja no. Las propiedades que pueden ser heredadas son el color, fuente, espaciado, el peso de la línea, propiedades de lista, alineación del texto, identado, visibilidad, espaciado de espacios y espaciado entre palabras. Las propiedades que no pueden ser heredadas son el fondo, bordes, visualización, posicionamiento, tamaño, márgenes, tamaño mínimo y máximo, outline, desbordamiento, relleno, posición, alineación vertical y z-index.
+          </p>
+
+          <p>
+            La herencia previene que algunas propiedades sean declaradas una y otra vez en la hoja de estilos, permitiendo a los diseñadores escribir menos código CSS. Mejora la carga rápida de los sitios por los usuarios, y permite a los clientes ahorrar dinero en los costos de desarrollo y ancho de banda.
+          </p>
+          <p>
+            Ejemplo
+            <p>Se tiene la siguiente hoja de estilos:</p>
+            <code> h1 {
+                color: pink;
+             }
+            </code>
+            <p>Este es un elemento h1 con una etiqueta de énfasis (em) dentro:
+            <div class="mw-highlight mw-highlight-lang-html mw-content-ltr" dir="ltr"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+                Esto es para <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>ilustrar<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> la herencia
+            <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            </pre></div> 
+                  <p>Si no se asigna un color al elemento em, la palabra «ilustrar» heredará el color del elemento padre, h1. Entonces, la palabra «ilustrar» aparecerá de color rosa. Pongamos por ejemplo el color gris para el texto que esté entre las etiquetas em</p>
+                  <code> em {
+                color: gray;
+             }
+            </code>
+          </p>
+         </article>
+              </section>
+              <section class="main-section" id="Espacios_en_blanco">
+                <header>Espacios en blanco</header>
+                <article>
+                  <p>
+            Los espacios en blanco entre propiedades y selectores se ignoran. Este pedazo de código:
+          </p>
+                <code>cuerpo { desbordamiento : oculto ; fondo : #000000 ;}</code>
+                es igual a este otro:
+                <code>body{overflow:hidden;background:#000000;}</code>
+                <p>
+                  Aunque el espaciado mejora la legibilidad del código.
+                </p
+              </article>
+            </section>
+            <section class="main-section" id="Posicionamiento">
+              <header>Posicionamiento</header>
+              <article>
+                <p>CSS 2.1 define 3 esquemas de posicionamiento</p>
+                <h1>Normal</h1>
+                <p>Los elementos inline, o de línea, son dispuestos de la misma manera que las letras en las palabras de un texto, una vez que ya no hay más espacio en una línea, entonces se empieza una nueva línea abajo. Los elementos block, o de bloque, son dispuestos verticalmente, como los párrafos.</p>
+          <h1>Flotante</h1>
+          <p>Un elemento float está fuera del flujo normal y puesto lo más posible a la derecha o izquierda en el espacio disponible. Los demás elementos fluyen alrededor del elemento float.</p>
+          <h1>Absoluto</h1>
+          <p>Un elemento posicionado absolutamente no tiene un lugar, y no afecta al flujo normal de los elementos. Ocupa el espacio que se le ha asignado independientemente de los demás elementos.</p>
+          </article>
+      </section>
+      <section class="main-section" id="Propiedades_de_posicionamiento">
+        <header>Propiedades de posicionamiento</header>
+        <article>
+          Hay 4 posibles valores para la propiedad position. Si un elemento está posicionado de una manera diferente a static, hay cuatro subpropiedades usadas para especificar posiciones y offsets: top, bottom, left y right.
+          <h1>Static</h1>
+          <p>El valor por defecto a los elementos en el flujo normal.</p>
+          <h1>Relative</h1>
+          <p>El elemento el posicionado en el flujo normal, y luego movido relativamente a su posición normal. Los demás elementos son independientes del elemento movido relativamente.</p>
+          <h1>Absolute</h1>
+          <p>Especifica el posicionamiento absoluto. El elemento es posicionado en relación con su antecesor no estático más cercano.</p>
+          <h1>Fixed</h1>
+          <p>El elemento es posicionado absolutamente en una posición fija de la pantalla aunque el resto del documento se mueva.</p>
+
+
+        </article>
+      </section>
+      <section class="main-section" id="Float_y_clear">
+        <header>Float y clear</header>
+        <article>
+          La propiedad float puede tener 3 valores diferentes. Los elementos posicionados absolutamente o de manera fija no pueden ser aplicados a esta propiedad. Los demás elementos flotan normalmente alrededor de los elementos flotantes, a menos que se establezcan alguna de las propiedades clear.
+
+          <h1>left</h1>
+          <p>El elemento el posicionado en el flujo normal, y luego movido relativamente a su posición normal. Los demás elementos son independientes del elemento movido relativamente.</p>
+          <h1>right</h1>
+          <p>El elemento el posicionado en el flujo normal, y luego movido relativamente a su posición normal. Los demás elementos son independientes del elemento movido relativamente.</p>
+          <h1>clear</h1>
+          <p>El elemento el posicionado en el flujo normal, y luego movido relativamente a su posición normal. Los demás elementos son independientes del elemento movido relativamente.</p>
+
+        </article>
+      </section>
+      <section class="main-section" id="Ventajas">
+        <header>Ventajas</header>
+        <article>
+          <p>
+          Por otro lado, algunas ventajas de utilizar CSS son:
+        </p>
+        <h1>Separación del contenido y la presentación</h1>
+        <p>CSS facilita la publicación de contenido en múltiples formatos de presentación basado en parámetros nominales. Estos incluyen preferencias explícitas del usuario, diferentes navegadores web, el tipo de dispositivo usado para ver el contenido (una PC o un teléfono inteligente), la localización geográfica u otras variables</p>
+        
+        <h1>Consistencia del sitio</h1>
+        <p>Cuando CSS es usado efectivamente, en términos de herencia y "cascading", una hoja de estilos global puede ser usado para aplicar estilos a todo un sitio. Si más adelante estos estilos deben ser cambiados, los cambios pueden ser hechos solo con cambiar las reglas en la hoja de estilos global. Antes de CSS, esto era mucho más difícil, caro y más tardado.</p>
+       
+        <h1>Ancho de banda</h1>
+        <p>Una hoja de estilos interna o externa, especifica el estilo para un conjunto de elementos HTML seleccionados por clase, tipo, o herencia. Esto es más eficiente que repetir información para cada ocurrencia del elemento. Una hoja de estilos externa usualmente es guardada en la caché del navegador, y puede ser usada en múltiples páginas sin ser cargada de nuevo, reduciendo la transferencia de datos a través de la red.</p>
+       
+        <h1>Formateo de página</h1>
+        <p>Con un cambio simple en una sola línea, puede cambiarse la hoja de estilos para la misma página. Esto trae ventajas para la accesibilidad, además de que posibilita adaptar el sitio a diferentes dispositivos.</p>
+        
+        <h1>Accesibilidad</h1>
+        <p>Sin CSS, los diseñadores web típicamente diseñaban sus páginas con elementos como tablas que dificultaban la accesibilidad para otros usuarios, y que iban en perjuicio de ciertos usos de los documentos, por parte de navegadores orientados a personas con algunas limitaciones sensoriales.</p>
+          </article>
+      </section>
+      <section class="main-section" id="Frameworks_de_CSS">
+        <header>Frameworks de CSS</header>
+        <article>
+        <p>Los frameworks de CSS son bibliotecas preparadas para simplificar y mejorar el cumplimiento de los estándares en el diseño de páginas web mediante el uso del lenguaje CSS. Algunos de los frameworks de CSS más comunes son Foundation, Blueprint, Bootstrap, Cascade Framework y Materialize. Como ocurre en la programación con bibliotecas en los lenguajes de script, los frameworks de CSS se suelen incorporar como hojas de estilo CSS externas referenciadas a través la etiqueta &lt;link&gt;. Esto ofrece numerosas opciones listas para el diseño y la maquetación de una página web. Aunque muchos frameworks ya han sido publicados, algunos diseñadores los emplean principalmente para desarrollar prototipos rápidos, o con fines de aprendizaje, mientras que prefieren crear su propio código CSS de forma manual.</p>
+
+          <ul>
+            <li>
+              Información adicional en
+              <a
+                href="https://es.wikipedia.org/wiki/CSS"
+                >CSS</a
+              >
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
